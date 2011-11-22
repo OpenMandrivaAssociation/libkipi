@@ -8,6 +8,7 @@ License: GPLv2
 URL: http://www.kde.org
 Source: ftp://ftp.kde.org/pub/kde/stable/%version/src/%name-%version.tar.bz2
 BuildRequires: kdelibs4-devel >= 2:%{version}
+BuildRequires: automoc4
 
 %description
 Libkipi is an interface to use kipi-plugins from a KDE image management
