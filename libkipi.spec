@@ -31,7 +31,7 @@ Common files for the kipi library.
 
 #------------------------------------------------	
 
-%define	kipi_major 8
+%define	kipi_major 9
 %define	libkipi %mklibname kipi %kipi_major
 
 %package -n %libkipi
