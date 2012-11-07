@@ -1,6 +1,6 @@
 Name:		libkipi
 Summary:	Interface to use kipi-plugins for KDE
-Version: 4.9.2
+Version: 4.9.3
 Release: 1
 Epoch:		2
 Group:		Graphical desktop/KDE
