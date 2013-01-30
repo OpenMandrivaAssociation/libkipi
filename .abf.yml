@@ -1,3 +1,4 @@
----
-sources:
+removed_sources:
   libkipi-4.9.4.tar.xz: fe3c09ed2bc378d975b1d2f495752f03529e52e7
+sources:
+  libkipi-4.9.98.tar.xz: f5e7b1a7f001d36496b1e69bab61b7332e882acf
