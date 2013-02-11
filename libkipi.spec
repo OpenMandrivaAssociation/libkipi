@@ -1,18 +1,18 @@
 Name:		libkipi
 Summary:	Interface to use kipi-plugins for KDE
-Version:	4.9.98
+Version:	4.10.0
 Release:	1
 Epoch:		2
 Group:		Graphical desktop/KDE
 License:	GPLv2
 URL:		http://www.kde.org
 %define is_beta %(if test `echo %version |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
-%if %is_beta
+%if %{is_beta}
 %define ftpdir unstable
 %else
 %define ftpdir stable
 %endif
-Source:		ftp://ftp.kde.org/pub/kde/%ftpdir/%{version}/src/%{name}-%{version}.tar.xz
+Source:		ftp://ftp.kde.org/pub/kde/%{ftpdir}/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	kdelibs4-devel
 BuildRequires:	automoc4
 
@@ -27,17 +27,17 @@ Summary:	Non-library files for the kipi library
 Group:		System/Libraries
 
 %description -n kipi-common
-Common files for the kipi library.
+Common files and tools for the kipi library.
 
 %files -n kipi-common
 %doc README TODO AUTHORS COPYING
+%{_kde_bindir}/kxmlkipicmd
 %{_kde_appsdir}/kipi
+%{_kde_appsdir}/kxmlkipicmd
 %{_kde_iconsdir}/*/*/*/kipi.*
+%{_kde_libdir}/kde4/kipiplugin_kxmlhelloworld.so
+%{_kde_services}/kipiplugin_kxmlhelloworld.desktop
 %{_kde_servicetypes}/kipiplugin.desktop
-%_bindir/kxmlkipicmd
-%_libdir/kde4/kipiplugin_kxmlhelloworld.so
-%_datadir/apps/kxmlkipicmd
-%_datadir/kde4/services/kipiplugin_kxmlhelloworld.desktop
 
 #------------------------------------------------
 
@@ -47,7 +47,8 @@ Common files for the kipi library.
 %package -n %{libkipi}
 Summary:	libkipi library
 Group:		System/Libraries
-Obsoletes:	%{mklibname kipi 8} < %{EVRD}
+Obsoletes:	%{_lib}kipi8 < 2:4.9.0
+Obsoletes:	%{_lib}kipi9 < 2:4.10.0
 
 %description -n %{libkipi}
 Libkipi is an interface to use kipi-plugins from a KDE image management
@@ -87,6 +88,11 @@ based on %{name}.
 %makeinstall_std -C build
 
 %changelog
+* Thu Feb 07 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.10.0-1
+- New version 4.10.0
+- New library major 10
+- Update files
+
 * Wed Dec 05 2012 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.9.4-1
 - New version 4.9.4
 
