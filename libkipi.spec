@@ -41,7 +41,7 @@ Common files and tools for the kipi library.
 
 #------------------------------------------------
 
-%define kipi_major 10
+%define kipi_major 11
 %define libkipi %mklibname kipi %{kipi_major}
 
 %package -n %{libkipi}
@@ -90,6 +90,7 @@ based on %{name}.
 %changelog
 * Wed Aug 14 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.11.0-1
 - New version 4.11.0
+- New library major 11
 
 * Wed Jul 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.10.5-1
 - New version 4.10.5
