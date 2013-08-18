@@ -49,6 +49,7 @@ Summary:	libkipi library
 Group:		System/Libraries
 Obsoletes:	%{_lib}kipi8 < 2:4.9.0
 Obsoletes:	%{_lib}kipi9 < 2:4.10.0
+Obsoletes:	%{_lib}kipi10 < 2:4.11.0
 
 %description -n %{libkipi}
 Libkipi is an interface to use kipi-plugins from a KDE image management
@@ -91,6 +92,7 @@ based on %{name}.
 * Wed Aug 14 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.11.0-1
 - New version 4.11.0
 - New library major 11
+- Obsolete old library
 
 * Wed Jul 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.10.5-1
 - New version 4.10.5
