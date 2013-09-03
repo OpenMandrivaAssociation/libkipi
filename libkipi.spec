@@ -1,6 +1,6 @@
 Summary:	Interface to use kipi-plugins for KDE
 Name:		libkipi
-Version:	4.11.0
+Version:	4.11.1
 Release:	1
 Epoch:		2
 Group:		Graphical desktop/KDE
@@ -89,6 +89,9 @@ based on %{name}.
 %makeinstall_std -C build
 
 %changelog
+* Tue Sep 03 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.11.1-1
+- New version 4.11.1
+
 * Wed Aug 14 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 2:4.11.0-1
 - New version 4.11.0
 - New library major 11
