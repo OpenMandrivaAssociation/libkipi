@@ -2,7 +2,7 @@
 Summary:	Interface to use kipi-plugins for KDE
 Name:		libkipi
 Version:	15.08.0
-Release:	1
+Release:	2
 Epoch:		2
 Group:		Graphical desktop/KDE
 License:	GPLv2
