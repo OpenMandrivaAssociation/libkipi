@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   libkipi-15.08.0.tar.xz: f65dd7018888837614b71d50589681a77244f6e7
+sources:
+  libkipi-15.08.1.tar.xz: 5fcfb6a3568630b44d781f3ec75d798e778856ba
