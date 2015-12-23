@@ -93,9 +93,7 @@ This package provides the runtime library.
 
 #-----------------------------------------------------------------------------
 
-%define KF5Kipi_devel %mklibname KF5Kipi -d
-
-%package -n %{KF5Kipi_devel}
+%package devel
 Summary:	Development library for %{name}
 Group:		Development/KDE and Qt
 Provides:	%{name}-devel = %{EVRD}
@@ -104,11 +102,11 @@ Conflicts:	kdegraphics4-devel < 2:4.6.90
 Conflicts:	libkipi-devel < 2:4.9.2-2
 Obsoletes:	libkipi-devel < 2:15.12.0
 
-%description -n %{KF5Kipi_devel}
+%description devel
 This package contains header files needed if you wish to build applications
 based on %{name}.
 
-%files -n %{KF5Kipi_devel}
+%files devel
 %{_includedir}/KF5/KIPI
 %{_includedir}/KF5/libkipi_version.h
 %{_libdir}/*.so
