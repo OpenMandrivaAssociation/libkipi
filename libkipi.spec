@@ -109,8 +109,8 @@ This package contains header files needed if you wish to build applications
 based on %{name}.
 
 %files -n %{KF5Kipi_devel}
-%{_includedir}/KIPI
-%{_includedir}/libkipi_version.h
+%{_includedir}/KF5/KIPI
+%{_includedir}/KF5/libkipi_version.h
 %{_libdir}/*.so
 %{_libdir}/cmake/KF5Kipi
 
