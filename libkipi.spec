@@ -3,13 +3,18 @@ Summary:	Interface to use kipi-plugins for KDE
 Name:		libkipi
 Version:	15.12.0
 Release:	1
-Epoch:		2
 Group:		Graphical desktop/KDE
 License:	GPLv2
 Url:		http://www.kde.org
-Source0:	ftp://ftp.kde.org/pub/kde/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
-BuildRequires:	kdelibs4-devel
-BuildRequires:	automoc4
+Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+BuildRequires:	cmake(ECM)
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(Qt5Gui)
+BuildRequires:	cmake(KF5I18n)
+BuildRequires:	cmake(KF5Config)
+BuildRequires:	cmake(KF5XmlGui)
+BuildRequires:	cmake(KF5Service)
 
 %description
 Libkipi is an interface to use kipi-plugins from a KDE image management
@@ -20,66 +25,103 @@ program like digiKam (http://www.digikam.org).
 %package -n kipi-common
 Summary:	Non-library files for the kipi library
 Group:		System/Libraries
+BuildArch:	noarch
+Obsoletes:	kipi-common < 2:15.12.0
 
 %description -n kipi-common
 Common files and tools for the kipi library.
 
 %files -n kipi-common
-%doc README TODO AUTHORS COPYING
-%{_kde_bindir}/kxmlkipicmd
-%{_kde_appsdir}/kipi
-%{_kde_appsdir}/kxmlkipicmd
-%{_kde_iconsdir}/*/*/*/kipi.*
-%{_kde_libdir}/kde4/kipiplugin_kxmlhelloworld.so
-%{_kde_services}/kipiplugin_kxmlhelloworld.desktop
-%{_kde_servicetypes}/kipiplugin.desktop
+%doc README TODO AUTHORS
+%{_datadir}/kf5/kipi
+%{_iconsdir}/*/*/*/kipi.*
+%{_datadir}/kservicetypes5/kipiplugin.desktop
+%dir %{_datadir}/kxmlgui5/kipi
 
 #------------------------------------------------
 
-%define kipi_major 11
-%define libkipi %mklibname kipi %{kipi_major}
+%package -n kxmlkipicmd
+Summary:	Tools to launch kipi-plugins from commandline
+Group:		Graphics/Utilities
 
-%package -n %{libkipi}
-Summary:	libkipi library
+%description -n kxmlkipicmd
+This package provides kxmlkipicmd which allows to start kipi-plugins from
+commandline.
+
+%files -n kxmlkipicmd
+%{_bindir}/kxmlkipicmd
+%{_datadir}/kxmlkipicmd
+
+#------------------------------------------------
+
+%package -n kipi-plugin-kxmlhelloword
+Summary:	A demo kipi tool using KDE XML-GUI technology
+Group:		Graphics/Utilities
+Requires:	kipi-common
+
+%description -n kipi-plugin-kxmlhelloword
+This package provides kxmlhelloword which is a demo kipi tool using KDE XML-GUI
+technology.
+
+%files -n kipi-plugin-kxmlhelloword
+%{_qt5_plugindir}/kipiplugin_kxmlhelloworld.so
+%{_datadir}/kservices5/kipiplugin_kxmlhelloworld.desktop
+%{_datadir}/kxmlgui5/kipi/*
+
+#------------------------------------------------
+
+%define KF5Kipi_major 5
+%define libKF5Kipi %mklibname KF5Kipi %{KF5Kipi_major}
+
+%package -n %{libKF5Kipi}
+Summary:	Libkipi runtime library
 Group:		System/Libraries
 Obsoletes:	%{_lib}kipi8 < 2:4.9.0
 Obsoletes:	%{_lib}kipi9 < 2:4.10.0
 Obsoletes:	%{_lib}kipi10 < 2:4.11.0
+Obsoletes:	%{_lib}kipi11 < 2:15.12.0
 
-%description -n %{libkipi}
+%description -n %{libKF5Kipi}
 Libkipi is an interface to use kipi-plugins from a KDE image management
 program like digiKam (http://www.digikam.org).
 
-%files -n %{libkipi}
-%{_kde_libdir}/libkipi.so.%{kipi_major}*
+This package provides the runtime library.
+
+%files -n %{libKF5Kipi}
+%{_libdir}/libKF5Kipi.so.%{KF5Kipi_major}*
+%{_libdir}/libKF5Kipi.so.30*
 
 #-----------------------------------------------------------------------------
 
-%package devel
-Summary:	Devel stuff for %{name}
-Group:		Development/KDE and Qt
-Requires:	kdelibs4-devel >= 2:%{version}
-Requires:	%{libkipi} = %{EVRD}
-Conflicts:	kdegraphics4-devel < 2:4.6.90
+%define KF5Kipi_devel %mklibname KF5Kipi -d
 
-%description devel
+%package -n %{KF5Kipi_devel}
+Summary:	Development library for %{name}
+Group:		Development/KDE and Qt
+Provides:	%{name}-devel = %{EVRD}
+Requires:	%{libKF5Kipi} = %{EVRD}
+Conflicts:	kdegraphics4-devel < 2:4.6.90
+Conflicts:	libkipi-devel < 2:4.9.2-2
+Obsoletes:	libkipi-devel < 2:15.12.0
+
+%description -n %{KF5Kipi_devel}
 This package contains header files needed if you wish to build applications
 based on %{name}.
 
-%files devel
-%{_includedir}/%{name}
-%{_kde_libdir}/libkipi.so
-%{_kde_libdir}/pkgconfig/libkipi.pc
+%files -n %{KF5Kipi_devel}
+%{_includedir}/KIPI
+%{_includedir}/libkipi_version.h
+%{_libdir}/*.so
+%{_libdir}/cmake/KF5Kipi
 
 #----------------------------------------------------------------------
 
 %prep
 %setup -q
+%cmake_kde
 
 %build
-%cmake_kde4 \
-	-DCMAKE_MINIMUM_REQUIRED_VERSION=3.1
-%make
+%ninja -C build
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
