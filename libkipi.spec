@@ -42,7 +42,8 @@ Common files and tools for the kipi library.
 
 %package -n kxmlkipicmd
 Summary:	Tools to launch kipi-plugins from commandline
-Group:		Graphics/Utilities
+Group:		Graphics
+Requires:	kipi-common
 
 %description -n kxmlkipicmd
 This package provides kxmlkipicmd which allows to start kipi-plugins from
@@ -56,7 +57,7 @@ commandline.
 
 %package -n kipi-plugin-kxmlhelloword
 Summary:	A demo kipi tool using KDE XML-GUI technology
-Group:		Graphics/Utilities
+Group:		Graphics
 Requires:	kipi-common
 
 %description -n kipi-plugin-kxmlhelloword
