@@ -85,13 +85,13 @@ Obsoletes:	%{_lib}kipi9 < 2:4.10.0
 Obsoletes:	%{_lib}kipi10 < 2:4.11.0
 Obsoletes:	%{_lib}kipi11 < 2:15.12.0
 
-%description -n %{libKF5Kipi}
+%description -n %{libname}
 Libkipi is an interface to use kipi-plugins from a KDE image management
 program like digiKam (http://www.digikam.org).
 
 This package provides the runtime library.
 
-%files -n %{libKF5Kipi}
+%files -n %{libname}
 %{_libdir}/libKF5Kipi.so.%{KF5Kipi_major}*
 %{_libdir}/libKF5Kipi.so.30*
 
