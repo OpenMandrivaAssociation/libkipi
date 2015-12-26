@@ -92,7 +92,7 @@ program like digiKam (http://www.digikam.org).
 This package provides the runtime library.
 
 %files -n %{libname}
-%{_libdir}/libKF5Kipi.so.%{KF5Kipi_major}*
+%{_libdir}/libKF5Kipi.so.%{major}*
 %{_libdir}/libKF5Kipi.so.30*
 
 #-----------------------------------------------------------------------------
