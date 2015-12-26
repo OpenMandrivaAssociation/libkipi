@@ -1,8 +1,12 @@
+%define major 5
+%define libname %mklibname KF5Kipi %{major}
+%define devname %mklibname KF5Kipi -d
+
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	Interface to use kipi-plugins for KDE
 Name:		libkipi
 Version:	15.12.0
-Release:	2
+Release:	3
 Epoch:		2
 Group:		Graphical desktop/KDE
 License:	GPLv2
@@ -73,10 +77,7 @@ technology.
 
 #------------------------------------------------
 
-%define KF5Kipi_major 5
-%define libKF5Kipi %mklibname KF5Kipi %{KF5Kipi_major}
-
-%package -n %{libKF5Kipi}
+%package -n %{libname}
 Summary:	Libkipi runtime library
 Group:		System/Libraries
 Obsoletes:	%{_lib}kipi8 < 2:4.9.0
@@ -96,20 +97,20 @@ This package provides the runtime library.
 
 #-----------------------------------------------------------------------------
 
-%package devel
+%package -n %{devname}
 Summary:	Development library for %{name}
 Group:		Development/KDE and Qt
 Provides:	%{name}-devel = %{EVRD}
-Requires:	%{libKF5Kipi} = %{EVRD}
+Requires:	%{libname} = %{EVRD}
 Conflicts:	kdegraphics4-devel < 2:4.6.90
 Conflicts:	libkipi-devel < 2:4.9.2-2
-Obsoletes:	libkipi-devel < 2:15.12.0
+Obsoletes:	libkipi-devel < 2:15.12.0-3
 
-%description devel
+%description -n %{devname}
 This package contains header files needed if you wish to build applications
 based on %{name}.
 
-%files devel
+%files -n %{devname}
 %{_includedir}/KF5/KIPI
 %{_includedir}/KF5/libkipi_version.h
 %{_libdir}/*.so
