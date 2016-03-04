@@ -6,13 +6,14 @@
 Summary:	Interface to use kipi-plugins for KDE
 Name:		libkipi
 Version:	15.12.2
-Release:	1
+Release:	2
 Epoch:		2
 Group:		Graphical desktop/KDE
 License:	GPLv2
 Url:		http://www.kde.org
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 Source1:	%{name}.rpmlintrc
+Patch0:		libkipi-15.12.2-Remove-unused-method.patch
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Widgets)
@@ -120,6 +121,7 @@ based on %{name}.
 
 %prep
 %setup -q
+%apply_patches
 %cmake_kde5
 
 %build
