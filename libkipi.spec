@@ -5,7 +5,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	Interface to use kipi-plugins for KDE
 Name:		libkipi
-Version:	15.12.3
+Version:	16.04.0
 Release:	1
 Epoch:		2
 Group:		Graphical desktop/KDE
@@ -13,7 +13,6 @@ License:	GPLv2
 Url:		http://www.kde.org
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 Source1:	%{name}.rpmlintrc
-Patch0:		libkipi-15.12.2-Remove-unused-method.patch
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5Widgets)
@@ -40,7 +39,6 @@ Common files and tools for the kipi library.
 
 %files -n kipi-common
 %doc README TODO AUTHORS
-%{_datadir}/kf5/kipi
 %{_iconsdir}/*/*/*/kipi.*
 %{_datadir}/kservicetypes5/kipiplugin.desktop
 %dir %{_datadir}/kxmlgui5/kipi
@@ -94,7 +92,7 @@ This package provides the runtime library.
 
 %files -n %{libname}
 %{_libdir}/libKF5Kipi.so.%{major}*
-%{_libdir}/libKF5Kipi.so.30*
+%{_libdir}/libKF5Kipi.so.31*
 
 #-----------------------------------------------------------------------------
 
