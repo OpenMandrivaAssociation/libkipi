@@ -21,6 +21,8 @@ BuildRequires:	cmake(KF5I18n)
 BuildRequires:	cmake(KF5Config)
 BuildRequires:	cmake(KF5XmlGui)
 BuildRequires:	cmake(KF5Service)
+BuildRequires:	jpeg-devel
+BuildRequires:	tiff-devel
 
 %description
 Libkipi is an interface to use kipi-plugins from a KDE image management
