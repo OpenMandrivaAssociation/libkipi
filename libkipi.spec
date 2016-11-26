@@ -24,6 +24,8 @@ BuildRequires:	cmake(KF5Service)
 BuildRequires:	cmake(KF5KExiv2)
 BuildRequires:	jpeg-devel
 BuildRequires:	tiff-devel
+Obsoletes:	kxmlkipicmd < 2:16.08.3-1
+Provides:	kxmlkipicmd = 2:16.08.3-1
 
 %description
 Libkipi is an interface to use kipi-plugins from a KDE image management
@@ -45,21 +47,6 @@ Common files and tools for the kipi library.
 %{_iconsdir}/*/*/*/kipi.*
 %{_datadir}/kservicetypes5/kipiplugin.desktop
 %dir %{_datadir}/kxmlgui5/kipi
-
-#------------------------------------------------
-
-%package -n kxmlkipicmd
-Summary:	Tools to launch kipi-plugins from commandline
-Group:		Graphics
-Requires:	kipi-common
-
-%description -n kxmlkipicmd
-This package provides kxmlkipicmd which allows to start kipi-plugins from
-commandline.
-
-%files -n kxmlkipicmd
-%{_bindir}/kxmlkipicmd
-%{_datadir}/kxmlkipicmd
 
 #------------------------------------------------
 
