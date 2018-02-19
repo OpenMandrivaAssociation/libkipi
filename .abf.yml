@@ -1,2 +1,4 @@
+removed_sources:
+  libkipi-17.12.1.tar.xz: 591bfc065522518c971ce58cc466469c9eb2f4a7
 sources:
-  libkipi-17.04.0.tar.xz: d1087e853c3b9e08677eea20ea652b83acbe7c4a
+  libkipi-17.12.2.tar.xz: f279852c452de1359144056572c134095cf6e5ee
