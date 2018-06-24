@@ -22,6 +22,8 @@ BuildRequires:	cmake(KF5Config)
 BuildRequires:	cmake(KF5XmlGui)
 BuildRequires:	cmake(KF5Service)
 BuildRequires:	cmake(KF5KExiv2)
+BuildRequires:	pkgconfig(libpng)
+BuildRequires:	pkgconfig(zlib)
 BuildRequires:	jpeg-devel
 BuildRequires:	tiff-devel
 Obsoletes:	kxmlkipicmd < 2:16.08.3-1
