@@ -5,13 +5,13 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	Interface to use kipi-plugins for KDE
 Name:		libkipi
-Version:	19.11.90
+Version:	19.12.0
 Release:	1
 Epoch:		2
 Group:		Graphical desktop/KDE
 License:	GPLv2
 Url:		http://www.kde.org
-Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 Source1:	%{name}.rpmlintrc
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(Qt5Core)
@@ -111,7 +111,7 @@ based on %{name}.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 %cmake_kde5
 
 %build
