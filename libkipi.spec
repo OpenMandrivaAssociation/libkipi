@@ -5,7 +5,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	Interface to use kipi-plugins for KDE
 Name:		libkipi
-Version:	22.08.3
+Version:	22.12.0
 Release:	1
 Epoch:		2
 Group:		Graphical desktop/KDE
@@ -104,7 +104,6 @@ based on %{name}.
 
 %files -n %{devname}
 %{_includedir}/KF5/KIPI
-%{_includedir}/KF5/libkipi_version.h
 %{_libdir}/*.so
 %{_libdir}/cmake/KF5Kipi
 
