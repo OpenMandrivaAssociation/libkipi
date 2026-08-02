@@ -5,8 +5,8 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	Interface to use kipi-plugins for KDE
 Name:		libkipi
-Version:	24.02.0
-Release:	2
+Version:	24.02.2
+Release:	1
 Epoch:		2
 Group:		Graphical desktop/KDE
 License:	GPLv2
